@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+<section class="px-4">
+<h4 class="py-3"><b>Dentists</b></h4>
+<div class="">
+
+<h6><b>Patient Details</b></h6>
+
+<!-- form starts -->
+<form method="POST" action="{% url 'addnewpatient' %}">
+{% csrf_token %}
+  <div class="row px-3 py-2">
+  <h6 class="py-3">Patient Information</h6>
+    
+    <div class="col-sm-12">
+{% for message in messages %}
+<div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert"style="color:white;background:#294C3E;">
+   {{message}}
+ </div>
+{% endfor %}
+</div>
+
+    <div class="col-sm-4 my-3">
+    <label for="PatientName">Patient name</label>
+      <input type="text" class="form-control border-0" style="background:#EBEBEB" placeholder="Patient name" name="PatientName">
+    </div>
+   
+    <div class="col-sm-4 my-3">
+    <label for="PatientID">Patient ID</label>
+      <input type="text" class="form-control border-0" style="background:#EBEBEB" placeholder="Patient ID" name="PatientID">
+    </div>
+
+   <div class="col-sm-4 my-3">
+    <label for="Clinic">Clinic</label>
+      <input type="text" class="form-control border-0" style="background:#EBEBEB" placeholder="Clinic A" name="Clinic">
+    </div>
+
+        <div class="col-sm-4 my-3">
+    <label for="Prescriber">Prescriber</label>
+      <input type="text" class="form-control border-0" style="background:#EBEBEB" placeholder="Prescriber" name="Prescriber">
+    </div>
+   
+    <div class="col-sm-4 my-3">
+    <label for="Invoice">Invoice</label>
+      <input type="text" class="form-control border-0" style="background:#EBEBEB" placeholder="Invoice" name="Invoice">
+    </div>
+
+   <div class="col-sm-4 my-3">
+    <label for="BalanceToPay">Balance to pay</label>
+      <input type="text" class="form-control border-0" style="background:#EBEBEB" placeholder="Balance to pay" name="BalanceToPay">
+    </div>
+
+   <div class="col-sm-6 my-3">
+    <label for="Surgery">Surgery</label>
+      <input type="text" class="form-control border-0" style="background:#EBEBEB" placeholder="Surgery" name="Surgery">
+    </div>
+
+   <div class="col-sm-6 my-3">
+    <label for="Fee">Fee</label>
+      <input type="text" class="form-control border-0" style="background:#EBEBEB" placeholder="Fee" name="Fee">
+    </div>
+
+
+{% comment %} 
+<div class="col-sm-12 my-3">
+<h6 class="mt-3"><b>Treatment plan request</b></h6>
+<label for="Fee">Upload pdf</label>
+      <input type="text" class="form-control border-0" style="background:#EBEBEB" placeholder="Fee" name="Fee">
+</div>
+<div class="col-sm-12 my-3">
+<h6 class="mt-3"><b>Proposed treatment</b></h6>
+<label for="Fee">Upload pdf</label>
+      <input type="text" class="form-control border-0" style="background:#EBEBEB" placeholder="Fee" name="Fee">
+</div> {% endcomment %}
+
+
+<div class="col-sm-6 d-flex justify-content-between py-3">
+    <div class="form-check form-check-inline">
+  <input class="form-check-input" type="checkbox" id="Accept" value="Accept" name="Status">
+  <label class="form-check-label" for="Accept">Accept</label>
+   </div>
+
+       <div class="form-check form-check-inline">
+  <input class="form-check-input" type="checkbox" id="Review" value="Review" name="Status">
+  <label class="form-check-label" for="Review">Review</label>
+   </div>
+       
+       <div class="form-check form-check-inline">
+  <input class="form-check-input" type="checkbox" id="Decline" value="Decline" name="Status">
+  <label class="form-check-label" for="Decline">Decline</label>
+   </div>
+
+</div>
+    
+       <div class="col-sm-12 my-3">
+    <label for="Note">Note</label>
+    <textarea class="form-control border-0" style="background:#EBEBEB" style="font-size:12px;" type="text" rows="6" cols="" placeholder="Write a note" name="Note"></textarea>
+    </div>
+
+<div class="col-sm-12 py-4"style="margin:auto;">
+  <input type="submit" class="btn btn-primary px-5 py-2" value="Submit">   
+</div>
+
+
+
+  </div>
+</form>
+<!-- form ends -->
+
+
+</div>
+
+</section>
+{% endblock body %}

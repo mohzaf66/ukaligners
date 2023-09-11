@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+<section class="px-3">
+<h4 class="py-3"><b>Dashboard</b></h4>
+<div class="row py-5">
+
+<div class="col-sm-3">
+<a href="{% url 'patients' %}">
+<div class="card border shadow rounded px-3 py-3"style="background:#EBEBEB;height:150px;">
+<div class="title "><h3 style="color:#346248;">Total Patients</h3></div>
+<div class="number text-secondary"><h1><b>{{totalpatientscount}}</b></h1></div>
+<div class="icon"><a href=""style="float:right;color:#346248;">Check Details</a></div>
+</div>
+</a>
+</div>
+
+<div class="col-sm-3">
+<a href="{% url 'patientaccepted' %}">
+<div class="card border shadow rounded px-3 py-3"style="background:#EBEBEB;height:150px;">
+<div class="title "><h3 style="color:#346248;">Accepted</h3></div>
+<div class="number text-secondary"><h1><b>{{acceptedpatientscount}}</b></h1></div>
+<div class="icon"><a href=""style="float:right;color:#346248;">Check Details</a></div>
+</div>
+</a>
+</div>
+
+<div class="col-sm-3">
+<a href="patientreview">
+<div class="card border shadow rounded px-3 py-3"style="background:#EBEBEB;height:150px;">
+<div class="title "><h3 style="color:#346248;">Review</h3></div>
+<div class="number text-secondary"><h1><b>{{reviewpatientscount}}</b></h1></div>
+<div class="icon"><a href=""style="float:right;color:#346248;">Check Details</a></div>
+</div>
+</a>
+</div>
+
+<div class="col-sm-3">
+<a href="{% url 'patientdeclined' %}">
+<div class="card border shadow rounded px-3 py-3"style="background:#EBEBEB;height:150px;">
+<div class="title "><h3 style="color:#346248;">Declined</h3></div>
+<div class="number text-secondary"><h1><b>{{declinedpatientscount}}</b></h1></div>
+<div class="icon"><a href=""style="float:right;color:#346248;">Check Details</a></div>
+</div>
+</a>
+</div>
+
+
+
+</div>
+
+</section>
+{% endblock body %}
